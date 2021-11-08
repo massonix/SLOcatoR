@@ -1,12 +1,18 @@
-#' Title
+#' Transfer label from training set to test set using a KNN classifier
 #'
-#' @param seurat_obj
-#' @param training_set
-#' @param test_set
-#' @param response_var
-#' @param k
 #'
-#' @return
+#'
+#' @param seurat_obj a Seurat object
+#' @param training_set a matrix of cells x features. Usually corresponds to the
+#'   "training_set" element in the list obtained with split_training_and_test_sets
+#' @param test_set a matrix of cells x features. Usually corresponds to the
+#'   "test_set" element in the list obtained with split_training_and_test_sets
+#' @param response_var character string specifying which variable in
+#'   seurat_obj@meta.data contains the response variable
+#' @param k numeric specifying the size of the neighborhood
+#'
+#' @return A data.frame that contains the predicted annotation and annotation
+#'    probability (estimated accuracy) for each cell.
 #' @export
 #'
 #' @examples

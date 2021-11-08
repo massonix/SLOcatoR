@@ -2,7 +2,7 @@
 % Please edit documentation in R/integrate_assays_atac.R
 \name{integrate_assays_atac}
 \alias{integrate_assays_atac}
-\title{Title}
+\title{Integrate Single-Cell Chromatin Accessibility Profiles}
 \usage{
 integrate_assays_atac(
   seurat_obj,
@@ -13,11 +13,24 @@ integrate_assays_atac(
 )
 }
 \arguments{
-\item{reduction}{}
+\item{seurat_obj}{a Seurat object}
+
+\item{n_dim}{number of dimensions (principal components) to use as input to
+Harmony}
+
+\item{assay_use}{a character string specifying which variable in
+seurat_obj@meta.data contains the assay for each cell}
+
+\item{group_by_vars}{a character string specifying which variable in
+seurat_obj@meta.data contains Harmony should consider as batch}
+
+\item{reduction}{character string specifying the reduction inside
+seurat_obj@reductions to use. "harmony" by default}
 }
 \value{
-
+A Seurat object.
 }
 \description{
-Title
+Run the standard scATAC-seq pipeline with Signac (10.1038/s41592-021-01282-5)
+and correct for batch effects using Harmony (10.1038/s41592-019-0619-0).
 }

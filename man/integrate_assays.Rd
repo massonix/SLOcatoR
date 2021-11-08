@@ -2,7 +2,7 @@
 % Please edit documentation in R/integrate_assays.R
 \name{integrate_assays}
 \alias{integrate_assays}
-\title{Title}
+\title{Integrate Assays}
 \usage{
 integrate_assays(
   seurat_obj,
@@ -13,11 +13,26 @@ integrate_assays(
 )
 }
 \arguments{
-\item{n_dim}{}
+\item{seurat_obj}{a Seurat object}
+
+\item{assay_specific}{logical indicating whether to perform the integration
+in an assay-specific fashion or not.}
+
+\item{assay_var}{a character string specifying which variable in
+seurat_obj@meta.data contains the assay for each cell}
+
+\item{shared_hvg}{a character vector with all the highly variable features shared
+across assays (output of find_assay_specific_features)}
+
+\item{n_dim}{Number of dimensions (principal components) to use as input to
+Harmony}
 }
 \value{
-
+A Seurat object with an additional "harmony" slot in seurat_obj@reductions
 }
 \description{
-Title
+This function leverages Harmony (10.1038/s41592-019-0619-0) and the shared
+highly variable genes obtained with find_assay_specific_features, to correct
+for batch effects between assays. Harmony is amongst the best-performing and
+fastest batch effect correction tools (10.1186/s13059-019-1850-9).
 }

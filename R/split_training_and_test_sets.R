@@ -1,13 +1,21 @@
-#' Title
+#' Split dataset into training and test sets
 #'
-#' @param seurat_obj
-#' @param split_var
-#' @param referece_label
-#' @param query_label
-#' @param reduction
-#' @param n_dims
+#' Create training (reference) and test (query) sets to use as input for
+#' KNN classification and regression. Since integrate_assays corrects for
+#' batch effects between the different assays, we commonly use batch effect-
+#' corrected principal components (harmony components) as features.
 #'
-#' @return
+#' @param seurat_obj a Seurat object
+#' @param split_var a character string specifying which variable in
+#'   seurat_obj@meta.data distinguishes between training and test cells
+#' @param referece_label a character string with the level that identifies
+#'   training (reference) cells
+#' @param query_label a character string with the level that identifies
+#'   test (reference) cells
+#' @param reduction  character string specifying the reduction inside
+#'   seurat_obj@reductions to use. "harmony" by default
+#' @param n_dims number of dimensions to use. 30 by default
+#' @return A list with two matrices (cells x features): training and test sets.
 #' @export
 #'
 #' @examples

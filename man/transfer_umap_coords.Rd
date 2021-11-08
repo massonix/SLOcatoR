@@ -2,7 +2,7 @@
 % Please edit documentation in R/transfer_umap_coords.R
 \name{transfer_umap_coords}
 \alias{transfer_umap_coords}
-\title{Title}
+\title{Transfer UMAP coordinates from training set to test set using KNN regression}
 \usage{
 transfer_umap_coords(
   seurat_obj,
@@ -14,11 +14,25 @@ transfer_umap_coords(
 )
 }
 \arguments{
-\item{k}{}
+\item{seurat_obj}{a Seurat object}
+
+\item{test_set}{a matrix of cells x features. Usually corresponds to the
+"test_set" element in the list obtained with split_training_and_test_sets}
+
+\item{umap1_var}{a character string specifying which variable in
+seurat_obj@meta.data contains the UMAP1 coordinates}
+
+\item{umap2_var}{a character string specifying which variable in
+seurat_obj@meta.data contains the UMAP2 coordinates}
+
+\item{k}{numeric specifying the size of the neighborhood}
+
+\item{training_set-}{a matrix of cells x features. Usually corresponds to the
+"training_set" element in the list obtained with split_training_and_test_sets}
 }
 \value{
 
 }
 \description{
-Title
+Transfer UMAP coordinates from training set to test set using KNN regression
 }

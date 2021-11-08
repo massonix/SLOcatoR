@@ -1,12 +1,19 @@
-#' Title
+#' Integrate Single-Cell Chromatin Accessibility Profiles
 #'
-#' @param seurat_obj
-#' @param n_dim
-#' @param assay_use
-#' @param group_by_vars
-#' @param reduction
+#' Run the standard scATAC-seq pipeline with Signac (10.1038/s41592-021-01282-5)
+#' and correct for batch effects using Harmony (10.1038/s41592-019-0619-0).
 #'
-#' @return
+#' @param seurat_obj a Seurat object
+#' @param n_dim number of dimensions (principal components) to use as input to
+#'   Harmony
+#' @param assay_use a character string specifying which variable in
+#'   seurat_obj@meta.data contains the assay for each cell
+#' @param group_by_vars a character string specifying which variable in
+#'   seurat_obj@meta.data contains Harmony should consider as batch
+#' @param reduction character string specifying the reduction inside
+#'   seurat_obj@reductions to use. "harmony" by default
+#'
+#' @return A Seurat object.
 #' @export
 #'
 #' @examples

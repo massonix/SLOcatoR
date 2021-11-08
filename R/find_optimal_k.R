@@ -1,12 +1,23 @@
-#' Title
+#' Find Optimal K
 #'
-#' @param seurat_obj
-#' @param training_set
-#' @param response_var
-#' @param ks
-#' @param return_plot
+#' The key parameter in K nearest-neighbors (KNN) classification and regression
+#' is the size of the neighborhood (K). Although we have obtained reasonable
+#' results with Ks between 5-30, this function allows to test the accuracy of
+#' the classifier as a function of different choices of K to select the most
+#' optimal one.
 #'
-#' @return
+#' @param seurat_obj a Seurat object
+#' @param training_set a matrix of cells x features. Usually corresponds to the
+#'   "training_set" element in the list obtained with split_training_and_test_sets
+#' @param response_var character string specifying which variable in
+#'   seurat_obj@meta.data contains the response variable
+#' @param ks numeric vector that contains the potential K
+#' @param return_plot logical indicating whether or not to return a plot with
+#' the accuracy as a function of K
+#'
+#' @return If return_plot is set to False, it returns a data.frame with the
+#'   expected accuracy for each k. If return_plot is set to True, it returns
+#'   a list with the data.frame and the plot.
 #' @export
 #'
 #' @examples

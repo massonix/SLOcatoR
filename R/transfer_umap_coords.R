@@ -1,11 +1,15 @@
-#' Title
+#' Transfer UMAP coordinates from training set to test set using KNN regression
 #'
-#' @param seurat_obj
-#' @param training_set
-#' @param test_set
-#' @param umap1_var
-#' @param umap2_var
-#' @param k
+#' @param seurat_obj a Seurat object
+#' @param training_set- a matrix of cells x features. Usually corresponds to the
+#'   "training_set" element in the list obtained with split_training_and_test_sets
+#' @param test_set a matrix of cells x features. Usually corresponds to the
+#'   "test_set" element in the list obtained with split_training_and_test_sets
+#' @param umap1_var a character string specifying which variable in
+#'   seurat_obj@meta.data contains the UMAP1 coordinates
+#' @param umap2_var a character string specifying which variable in
+#'   seurat_obj@meta.data contains the UMAP2 coordinates
+#' @param k numeric specifying the size of the neighborhood
 #'
 #' @return
 #' @export

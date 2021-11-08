@@ -2,7 +2,7 @@
 % Please edit documentation in R/split_training_and_test_sets.R
 \name{split_training_and_test_sets}
 \alias{split_training_and_test_sets}
-\title{Title}
+\title{Split dataset into training and test sets}
 \usage{
 split_training_and_test_sets(
   seurat_obj,
@@ -14,11 +14,28 @@ split_training_and_test_sets(
 )
 }
 \arguments{
-\item{n_dims}{}
+\item{seurat_obj}{a Seurat object}
+
+\item{split_var}{a character string specifying which variable in
+seurat_obj@meta.data distinguishes between training and test cells}
+
+\item{referece_label}{a character string with the level that identifies
+training (reference) cells}
+
+\item{query_label}{a character string with the level that identifies
+test (reference) cells}
+
+\item{reduction}{character string specifying the reduction inside
+seurat_obj@reductions to use. "harmony" by default}
+
+\item{n_dims}{number of dimensions to use. 30 by default}
 }
 \value{
-
+A list with two matrices (cells x features): training and test sets.
 }
 \description{
-Title
+Create training (reference) and test (query) sets to use as input for
+KNN classification and regression. Since integrate_assays corrects for
+batch effects between the different assays, we commonly use batch effect-
+corrected principal components (harmony components) as features.
 }

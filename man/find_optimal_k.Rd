@@ -2,7 +2,7 @@
 % Please edit documentation in R/find_optimal_k.R
 \name{find_optimal_k}
 \alias{find_optimal_k}
-\title{Title}
+\title{Find Optimal K}
 \usage{
 find_optimal_k(
   seurat_obj,
@@ -13,11 +13,28 @@ find_optimal_k(
 )
 }
 \arguments{
-\item{return_plot}{}
+\item{seurat_obj}{a Seurat object}
+
+\item{training_set}{a matrix of cells x features. Usually corresponds to the
+"training_set" element in the list obtained with split_training_and_test_sets}
+
+\item{response_var}{character string specifying which variable in
+seurat_obj@meta.data contains the response variable}
+
+\item{ks}{numeric vector that contains the potential K}
+
+\item{return_plot}{logical indicating whether or not to return a plot with
+the accuracy as a function of K}
 }
 \value{
-
+If return_plot is set to False, it returns a data.frame with the
+expected accuracy for each k. If return_plot is set to True, it returns
+a list with the data.frame and the plot.
 }
 \description{
-Title
+The key parameter in K nearest-neighbors (KNN) classification and regression
+is the size of the neighborhood (K). Although we have obtained reasonable
+results with Ks between 5-30, this function allows to test the accuracy of
+the classifier as a function of different choices of K to select the most
+optimal one.
 }
