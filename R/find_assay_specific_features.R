@@ -1,3 +1,13 @@
+#' Title
+#'
+#' @param seurat_obj
+#' @param assay_var
+#' @param n_features
+#'
+#' @return
+#' @export
+#'
+#' @examples
 find_assay_specific_features <- function(seurat_obj,
                                          assay_var = "assay",
                                          n_features = 5000) {

@@ -1,3 +1,15 @@
+#' Title
+#'
+#' @param seurat_obj
+#' @param assay_specific
+#' @param assay_var
+#' @param shared_hvg
+#' @param n_dim
+#'
+#' @return
+#' @export
+#'
+#' @examples
 integrate_assays <- function(seurat_obj,
                              assay_specific = TRUE,
                              assay_var = "assay",

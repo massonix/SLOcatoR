@@ -1,3 +1,15 @@
+#' Title
+#'
+#' @param seurat_obj
+#' @param training_set
+#' @param response_var
+#' @param ks
+#' @param return_plot
+#'
+#' @return
+#' @export
+#'
+#' @examples
 find_optimal_k <- function(seurat_obj,
                            training_set,
                            response_var,

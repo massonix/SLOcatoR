@@ -1,3 +1,16 @@
+#' Title
+#'
+#' @param seurat_obj
+#' @param training_set
+#' @param test_set
+#' @param umap1_var
+#' @param umap2_var
+#' @param k
+#'
+#' @return
+#' @export
+#'
+#' @examples
 transfer_umap_coords <- function(seurat_obj,
                                  training_set,
                                  test_set,

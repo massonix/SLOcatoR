@@ -1,3 +1,16 @@
+#' Title
+#'
+#' @param seurat_obj
+#' @param split_var
+#' @param referece_label
+#' @param query_label
+#' @param reduction
+#' @param n_dims
+#'
+#' @return
+#' @export
+#'
+#' @examples
 split_training_and_test_sets <- function(seurat_obj,
                                          split_var,
                                          referece_label,
