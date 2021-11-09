@@ -1,18 +1,3 @@
----
-output: github_document
----
-
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-```
-
-
 # SLOcatoR
 
 The goal of SLOcatoR is to annotate and visualize single-cell gene expression or chromatin accessibility profiles from secondary lymphoid organs (SLO) using the tonsil atlas as reference.
