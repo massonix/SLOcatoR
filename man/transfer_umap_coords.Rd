@@ -16,6 +16,9 @@ transfer_umap_coords(
 \arguments{
 \item{seurat_obj}{a Seurat object}
 
+\item{training_set}{a matrix of cells x features. Usually corresponds to the
+"training_set" element in the list obtained with split_training_and_test_sets}
+
 \item{test_set}{a matrix of cells x features. Usually corresponds to the
 "test_set" element in the list obtained with split_training_and_test_sets}
 
@@ -26,13 +29,14 @@ seurat_obj@meta.data contains the UMAP1 coordinates}
 seurat_obj@meta.data contains the UMAP2 coordinates}
 
 \item{k}{numeric specifying the size of the neighborhood}
-
-\item{training_set-}{a matrix of cells x features. Usually corresponds to the
-"training_set" element in the list obtained with split_training_and_test_sets}
 }
 \value{
-
+A data.frame that contains the predicted UMAP1 and UMAP2 coords for
+each cell.
 }
 \description{
 Transfer UMAP coordinates from training set to test set using KNN regression
+}
+\examples{
+
 }

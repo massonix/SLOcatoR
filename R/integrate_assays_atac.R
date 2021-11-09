@@ -14,9 +14,14 @@
 #'   seurat_obj@reductions to use. "harmony" by default
 #'
 #' @return A Seurat object.
-#' @export
 #'
 #' @examples
+#'
+#' @importFrom Signac RunTFIDF FindTopFeatures RunSVD
+#' @importFrom magrittr %>%
+#' @importFrom harmony RunHarmony
+#' @export
+#'
 integrate_assays_atac <- function(seurat_obj,
                                   n_dim = 40,
                                   assay_use,

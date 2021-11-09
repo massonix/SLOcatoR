@@ -17,9 +17,13 @@
 #'   Harmony
 #'
 #' @return A Seurat object with an additional "harmony" slot in seurat_obj@reductions
-#' @export
 #'
 #' @examples
+#'
+#' @importFrom magrittr %>%
+#' @importFrom Seurat ScaleData RunPCA
+#' @importFrom harmony RunHarmony
+#' @export
 integrate_assays <- function(seurat_obj,
                              assay_specific = TRUE,
                              assay_var = "assay",

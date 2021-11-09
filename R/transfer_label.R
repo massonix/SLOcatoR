@@ -13,9 +13,11 @@
 #'
 #' @return A data.frame that contains the predicted annotation and annotation
 #'    probability (estimated accuracy) for each cell.
-#' @export
 #'
 #' @examples
+#'
+#' @importFrom class knn
+#' @export
 transfer_label <- function(seurat_obj,
                            training_set,
                            test_set,

@@ -16,9 +16,11 @@
 #'   seurat_obj@reductions to use. "harmony" by default
 #' @param n_dims number of dimensions to use. 30 by default
 #' @return A list with two matrices (cells x features): training and test sets.
-#' @export
 #'
 #' @examples
+#'
+#' @importFrom Seurat Embeddings
+#' @export
 split_training_and_test_sets <- function(seurat_obj,
                                          split_var,
                                          referece_label,

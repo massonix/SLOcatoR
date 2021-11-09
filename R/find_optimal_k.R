@@ -18,9 +18,12 @@
 #' @return If return_plot is set to False, it returns a data.frame with the
 #'   expected accuracy for each k. If return_plot is set to True, it returns
 #'   a list with the data.frame and the plot.
-#' @export
 #'
 #' @examples
+#'
+#' @importFrom class knn
+#' @import ggplot2
+#' @export
 find_optimal_k <- function(seurat_obj,
                            training_set,
                            response_var,

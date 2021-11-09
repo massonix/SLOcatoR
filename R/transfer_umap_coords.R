@@ -1,7 +1,7 @@
 #' Transfer UMAP coordinates from training set to test set using KNN regression
 #'
 #' @param seurat_obj a Seurat object
-#' @param training_set- a matrix of cells x features. Usually corresponds to the
+#' @param training_set a matrix of cells x features. Usually corresponds to the
 #'   "training_set" element in the list obtained with split_training_and_test_sets
 #' @param test_set a matrix of cells x features. Usually corresponds to the
 #'   "test_set" element in the list obtained with split_training_and_test_sets
@@ -11,10 +11,14 @@
 #'   seurat_obj@meta.data contains the UMAP2 coordinates
 #' @param k numeric specifying the size of the neighborhood
 #'
-#' @return
-#' @export
+#' @return A data.frame that contains the predicted UMAP1 and UMAP2 coords for
+#'   each cell.
 #'
 #' @examples
+#'
+#' @importFrom caret knnreg
+#' @importFrom stats predict
+#' @export
 transfer_umap_coords <- function(seurat_obj,
                                  training_set,
                                  test_set,

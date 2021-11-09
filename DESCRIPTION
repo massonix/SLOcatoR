@@ -1,9 +1,9 @@
 Package: SLOcatoR
 Title: Annotate Single-Cells from Secondary Lymphoid Organs
 Version: 0.0.0.9000
-Authors@R: 
-    person("Ramon", "Massoni-Badosa", "ramon.massoni@cnag.crg.eu", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0001-7115-8145"))
+Authors@R: c(
+    person("Ramon", "Massoni-Badosa", email="ramon.massoni@cnag.crg.eu", role = c("aut", "cre")),
+    person("Paula", "Soler-Vila", email="PSOLER@clinic.cat", role = "aut"))      
 Description: This package is aimed at annotating and visualizing single-cell
     gene expression or chromatin accessibility profiles from secondary lymphoid 
     organs (SLO) using the tonsil atlas as reference.
@@ -11,3 +11,13 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
+Imports: 
+    caret,
+    class,
+    ggplot2,
+    harmony,
+    magrittr,
+    purrr,
+    Seurat,
+    Signac,
+    stats

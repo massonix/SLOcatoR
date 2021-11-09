@@ -36,3 +36,6 @@ highly variable genes obtained with find_assay_specific_features, to correct
 for batch effects between assays. Harmony is amongst the best-performing and
 fastest batch effect correction tools (10.1186/s13059-019-1850-9).
 }
+\examples{
+
+}
