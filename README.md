@@ -10,7 +10,7 @@ SLOcatoR is under active development. For now, we have packages the functions we
 
 Our purpose is to make SLOcatoR a natural companion to [HCATonsilData](https://github.com/massonix/HCATonsilData). Users will download their references of interest from our tonsil atlas using HCATonsilData, and then SLOcatoR will serve them to annotate their own cell types of interest. To that end: we will rewrite SLOcatoR in a BioConductor-friendly manner, and aim to submit it for the release 3.16 of BioC.
 
-![](inst/images/SLOcatoR_workflow.png)
+![](inst/images/SLOcatoR_workflow2.png)
 
 
 ## Installation
