@@ -1,0 +1,126 @@
+---
+title: >
+  The `SLOcatoR` User's Guide
+author:
+- name: Ramon Massoni-Badosa
+  affiliation: 
+  - TODO
+  email: TODO
+- name: Federico Marini
+  affiliation: 
+  - Institute of Medical Biostatistics, Epidemiology and Informatics (IMBEI), Mainz
+  email: marinif@uni-mainz.de
+
+date: "`r BiocStyle::doc_date()`"
+package: "`r BiocStyle::pkg_ver('SLOcatoR')`"
+output: 
+  BiocStyle::html_document:
+    toc_float: true
+vignette: >
+  %\VignetteIndexEntry{The SLOcatoR User's Guide}
+  %\VignetteEncoding{UTF-8}  
+  %\VignettePackage{SLOcatoR}
+  %\VignetteKeywords{GeneExpression, RNASeq, FunctionalAnnotation, Sequencing, Visualization, QualityControl, GUI}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+bibliography: SLOcatoR.bib
+---
+
+<style type="text/css">
+.smaller {
+  font-size: 10px
+}
+</style>
+
+**Compiled date**: `r Sys.Date()`
+
+**Last edited**: 2023-06-13
+
+**License**: `r packageDescription("SLOcatoR")[["License"]]`
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment  = "#>",
+  error    = FALSE,
+  warning  = FALSE,
+  eval     = TRUE,
+  message  = FALSE,
+  fig.width = 10
+)
+options(width = 100)
+```
+
+<hr>
+
+# Introduction {#introduction}
+
+This vignette describes how to use the `r BiocStyle::Biocpkg("SLOcatoR")` package for ...
+
+Blah blah [@MassoniBadosa2022]
+
+# Getting started {#gettingstarted}
+
+To install this package, start R and enter:
+
+```{r install, eval=FALSE}
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+
+BiocManager::install("SLOcatoR")
+```
+
+Once installed, the package can be loaded and attached to your current workspace as follows:
+
+```{r loadlib, eval = TRUE}
+library("SLOcatoR")
+```
+
+## All set!
+
+Once you have ...
+
+```{r}
+
+```
+
+you are good to go
+
+# The `SLOcatoR` functionality {#functionality}
+
+The main `SLOcatoR` package can...
+
+# Use case 1: Transfer label microenvironment cells {#usecase1}
+
+following the vignette you link in the README
+
+# Use case 2: Harmonize CITE-seq object CD8 T {#usecase2}
+
+following the vignette you link in the README
+
+# Additional Information {#additionalinfo}
+
+Bug reports can be posted on the Bioconductor support site (https://support.bioconductor.org/) or raised as issues in the `SLOcatoR` GitHub repository... 
+
+If you use `SLOcatoR` for your analysis, please cite it as shown below:
+
+```{r cite}
+citation("SLOcatoR")
+```
+
+
+# FAQs {#faqs}
+
+**Q: `TODO Can I do x with SLOcatoR`????**
+
+A: TODO You can do it!
+
+
+# Session Info {- .smaller}
+
+```{r sessioninfo}
+sessionInfo()
+```
+
+# References {-}
