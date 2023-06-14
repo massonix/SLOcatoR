@@ -23,3 +23,10 @@ Imports:
     Seurat,
     Signac,
     stats
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+biocViews:
+    GeneExpression, SingleCell, Software, Transcription, Transcriptomics, 
