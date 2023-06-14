@@ -6,7 +6,9 @@ Authors@R: c(
     person("Paula", "Soler-Vila", email="PSOLER@clinic.cat", role = "aut"))      
 Description: This package is aimed at annotating and visualizing single-cell
     gene expression or chromatin accessibility profiles from secondary lymphoid 
-    organs (SLO) using the tonsil atlas as reference.
+    organs (SLO) using the tonsil atlas as reference. TODO second sentence saying
+    a bit more. TODO third sentence to say even something more - required by 
+    BiocCheck to have a "full sentence".
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
