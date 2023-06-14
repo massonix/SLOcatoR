@@ -22,7 +22,7 @@
 #' @examples
 #'
 #' @importFrom class knn
-#' @import ggplot2
+#' @importFrom ggplot2 ggplot aes geom_line geom_point theme_bw
 #' @export
 find_optimal_k <- function(seurat_obj,
                            training_set,
