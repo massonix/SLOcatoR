@@ -30,3 +30,4 @@ Suggests:
 VignetteBuilder: knitr
 biocViews:
     GeneExpression, SingleCell, Software, Transcription, Transcriptomics, 
+    Visualization, Annotation, Clustering, DimensionReduction, FeatureExtraction
