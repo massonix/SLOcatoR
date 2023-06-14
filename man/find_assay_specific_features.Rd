@@ -31,6 +31,3 @@ feature extraction for each assay independently, and then taking the
 intersection. In this setting, assay-dependent variable features are discarded,
 and batch effects are largely mitigated.
 }
-\examples{
-
-}

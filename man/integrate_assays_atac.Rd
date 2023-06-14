@@ -34,6 +34,3 @@ A Seurat object.
 Run the standard scATAC-seq pipeline with Signac (10.1038/s41592-021-01282-5)
 and correct for batch effects using Harmony (10.1038/s41592-019-0619-0).
 }
-\examples{
-
-}

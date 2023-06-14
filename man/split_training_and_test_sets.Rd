@@ -39,6 +39,3 @@ KNN classification and regression. Since integrate_assays corrects for
 batch effects between the different assays, we commonly use batch effect-
 corrected principal components (harmony components) as features.
 }
-\examples{
-
-}

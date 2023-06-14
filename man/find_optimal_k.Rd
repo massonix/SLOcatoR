@@ -38,6 +38,3 @@ results with Ks between 5-30, this function allows to test the accuracy of
 the classifier as a function of different choices of K to select the most
 optimal one.
 }
-\examples{
-
-}
