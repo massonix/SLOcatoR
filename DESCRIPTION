@@ -1,16 +1,38 @@
 Package: SLOcatoR
 Title: Annotate Single-Cells from Secondary Lymphoid Organs
-Version: 0.0.0.9000
-Authors@R: c(
-    person("Ramon", "Massoni-Badosa", email="ramon.massoni@cnag.crg.eu", role = c("aut", "cre")),
-    person("Paula", "Soler-Vila", email="PSOLER@clinic.cat", role = "aut"))      
+Version: 0.1.0
+Authors@R: 
+    c(
+        person(
+            given = "Ramon", 
+            family = "Massoni-Badosa", 
+            email = "ramon.massoni@cnag.crg.eu", 
+            role = c("aut", "cre"),
+            comment = c(ORCID = "0000-1111-TODO-0000")
+        ),
+        person(
+            given = "Paula", 
+            family = "Soler-Vila", 
+            email = "PSOLER@clinic.cat", 
+            role = "aut",
+        ),
+        person(
+            given = "Federico", 
+            family = "Marini", 
+            email = "marinif@uni-mainz.de", 
+            role = "ctb",
+            comment = c(ORCID = "0000-0003-3252-7758")
+        )
+    )      
 Description: This package is aimed at annotating and visualizing single-cell
     gene expression or chromatin accessibility profiles from secondary lymphoid 
-    organs (SLO) using the tonsil atlas as reference.
+    organs (SLO) using the tonsil atlas as reference. TODO second sentence saying
+    a bit more. TODO third sentence to say even something more - required by 
+    BiocCheck to have a "full sentence".
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
 Imports: 
     caret,
     class,
@@ -18,6 +40,15 @@ Imports:
     harmony,
     magrittr,
     purrr,
+    rlang,
     Seurat,
     Signac,
     stats
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+biocViews:
+    GeneExpression, SingleCell, Software, Transcription, Transcriptomics, 
+    Visualization, Annotation, Clustering, DimensionReduction, FeatureExtraction

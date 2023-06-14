@@ -12,7 +12,6 @@ Our purpose is to make SLOcatoR a natural companion to [HCATonsilData](https://g
 
 ![](inst/images/SLOcatoR_workflow2.png)
 
-
 ## Installation
 
 You can install the development version of SLOcatoR from [GitHub](https://github.com/) with:
@@ -20,6 +19,7 @@ You can install the development version of SLOcatoR from [GitHub](https://github
 ``` r
 # install.packages("devtools")
 devtools::install_github("massonix/SLOcatoR")
+>>>>>>> 1fd5d7be25bc069256f6e6db2262f1ac51f3cddc
 ```
 
 

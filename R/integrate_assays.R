@@ -20,6 +20,8 @@
 #'
 #' @examples
 #'
+#' ## TODO TODO
+#'
 #' @importFrom magrittr %>%
 #' @importFrom Seurat ScaleData RunPCA
 #' @importFrom harmony RunHarmony
@@ -34,7 +36,7 @@ integrate_assays <- function(seurat_obj,
     seurat_obj <- seurat_obj %>%
       ScaleData(features = shared_hvg) %>%
       RunPCA(features = shared_hvg) %>%
-      RunHarmony(group.by.vars = assay_var, reduction = "pca", dims = 1:n_dim)
+      RunHarmony(group.by.vars = assay_var, reduction = "pca", dims = seq_len(n_dim))
   } else {
     seurat_obj <- seurat_obj %>%
       ScaleData() %>%

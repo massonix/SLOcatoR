@@ -12,6 +12,7 @@
 #' @param response_var character string specifying which variable in
 #'   seurat_obj@meta.data contains the response variable
 #' @param ks numeric vector that contains the potential K
+#' @param verbose Logical, controls whether to print iterations messages
 #' @param return_plot logical indicating whether or not to return a plot with
 #' the accuracy as a function of K
 #'
@@ -21,16 +22,20 @@
 #'
 #' @examples
 #'
+#' ## TODO TODO
+#'
 #' @importFrom class knn
-#' @import ggplot2
+#' @importFrom rlang .data
+#' @importFrom ggplot2 ggplot aes geom_line geom_point theme_bw
 #' @export
 find_optimal_k <- function(seurat_obj,
                            training_set,
                            response_var,
                            ks = c(2, 4, 6, 8, 16, 32, 64, 128, 256),
+                           verbose = TRUE,
                            return_plot = TRUE) {
   indices <- sample(
-    1:nrow(training_set),
+    seq_len(nrow(training_set)),
     size = nrow(training_set) * 0.7,
     replace = FALSE
   )
@@ -43,7 +48,7 @@ find_optimal_k <- function(seurat_obj,
   k_values <- c()
 
   for (i in ks) {
-    print(i)
+    if (verbose) message(i)
     knn_mod <- knn(
       train = train_loan,
       test = test_loan,
@@ -57,7 +62,7 @@ find_optimal_k <- function(seurat_obj,
   k_df <- data.frame(k = k_values, accuracy = k_optm)
 
   if (return_plot) {
-    p <- ggplot(k_df, aes(k, accuracy)) +
+    p <- ggplot(k_df, aes(.data$k, .data$accuracy)) +
       geom_line() +
       geom_point() +
       theme_bw()

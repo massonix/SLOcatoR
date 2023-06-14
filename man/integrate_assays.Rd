@@ -38,4 +38,6 @@ fastest batch effect correction tools (10.1186/s13059-019-1850-9).
 }
 \examples{
 
+## TODO TODO
+
 }

@@ -16,6 +16,8 @@
 #'
 #' @examples
 #'
+#' ## TODO TODO
+#'
 #' @importFrom caret knnreg
 #' @importFrom stats predict
 #' @export
