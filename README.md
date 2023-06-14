@@ -2,12 +2,13 @@
 
 The goal of SLOcatoR is to annotate and visualize single-cell gene expression or chromatin accessibility profiles from secondary lymphoid organs (SLO) using the tonsil atlas as reference.
 
+![](inst/images/SLOcatoR_workflow.png)
 
 ## Installation
 
 You can install the development version of SLOcatoR from [GitHub](https://github.com/) with:
 
-``` r
+```r
 # install.packages("devtools")
 devtools::install_github("Single-Cell-Genomics-Group-CNAG-CRG/SLOcatoR")
 ```
@@ -16,7 +17,7 @@ devtools::install_github("Single-Cell-Genomics-Group-CNAG-CRG/SLOcatoR")
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r example}
+```r 
 library(SLOcatoR)
 ## basic example code
 ```
