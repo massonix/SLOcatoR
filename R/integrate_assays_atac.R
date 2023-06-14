@@ -17,6 +17,8 @@
 #'
 #' @examples
 #'
+#' ## TODO TODO
+#'
 #' @importFrom Signac RunTFIDF FindTopFeatures RunSVD
 #' @importFrom magrittr %>%
 #' @importFrom harmony RunHarmony
