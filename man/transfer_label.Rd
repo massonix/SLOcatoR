@@ -27,3 +27,8 @@ probability (estimated accuracy) for each cell.
 \description{
 Transfer label from training set to test set using a KNN classifier
 }
+\examples{
+
+## TODO TODO
+
+}

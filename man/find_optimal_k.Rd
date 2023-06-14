@@ -9,6 +9,7 @@ find_optimal_k(
   training_set,
   response_var,
   ks = c(2, 4, 6, 8, 16, 32, 64, 128, 256),
+  verbose = TRUE,
   return_plot = TRUE
 )
 }
@@ -22,6 +23,8 @@ find_optimal_k(
 seurat_obj@meta.data contains the response variable}
 
 \item{ks}{numeric vector that contains the potential K}
+
+\item{verbose}{Logical, controls whether to print iterations messages}
 
 \item{return_plot}{logical indicating whether or not to return a plot with
 the accuracy as a function of K}
@@ -37,4 +40,9 @@ is the size of the neighborhood (K). Although we have obtained reasonable
 results with Ks between 5-30, this function allows to test the accuracy of
 the classifier as a function of different choices of K to select the most
 optimal one.
+}
+\examples{
+
+## TODO TODO
+
 }
