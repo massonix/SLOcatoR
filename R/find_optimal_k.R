@@ -33,7 +33,7 @@ find_optimal_k <- function(seurat_obj,
                            verbose = TRUE,
                            return_plot = TRUE) {
   indices <- sample(
-    1:nrow(training_set),
+    seq_len(nrow(training_set)),
     size = nrow(training_set) * 0.7,
     replace = FALSE
   )

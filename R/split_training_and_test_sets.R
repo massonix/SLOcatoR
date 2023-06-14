@@ -35,7 +35,7 @@ split_training_and_test_sets <- function(seurat_obj,
 
   # Batch-corrected principal components are used as explanatory variables
   cell_embeddings <- Embeddings(seurat_obj, reduction = "harmony")
-  training_set <- cell_embeddings[reference_cells, 1:n_dims]
-  test_set <- cell_embeddings[query_cells, 1:n_dims]
+  training_set <- cell_embeddings[reference_cells, seq_len(n_dims)]
+  test_set <- cell_embeddings[query_cells, seq_len(n_dims)]
   list(training_set = training_set, test_set = test_set)
 }
