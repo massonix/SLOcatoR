@@ -22,6 +22,7 @@
 #' @examples
 #'
 #' @importFrom class knn
+#' @importFrom rlang .data
 #' @importFrom ggplot2 ggplot aes geom_line geom_point theme_bw
 #' @export
 find_optimal_k <- function(seurat_obj,
@@ -57,7 +58,7 @@ find_optimal_k <- function(seurat_obj,
   k_df <- data.frame(k = k_values, accuracy = k_optm)
 
   if (return_plot) {
-    p <- ggplot(k_df, aes(k, accuracy)) +
+    p <- ggplot(k_df, aes(.data$k, .data$accuracy)) +
       geom_line() +
       geom_point() +
       theme_bw()
