@@ -5,7 +5,7 @@
 \title{Integrate Assays}
 \usage{
 integrate_assays(
-  seurat_obj,
+  x,
   assay_specific = TRUE,
   assay_var = "assay",
   shared_hvg,
@@ -13,7 +13,7 @@ integrate_assays(
 )
 }
 \arguments{
-\item{seurat_obj}{a Seurat object}
+\item{x}{a Seurat object TODO or a SingleCellExperiment object}
 
 \item{assay_specific}{logical indicating whether to perform the integration
 in an assay-specific fashion or not.}

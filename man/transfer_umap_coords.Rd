@@ -4,17 +4,10 @@
 \alias{transfer_umap_coords}
 \title{Transfer UMAP coordinates from training set to test set using KNN regression}
 \usage{
-transfer_umap_coords(
-  seurat_obj,
-  training_set,
-  test_set,
-  umap1_var,
-  umap2_var,
-  k
-)
+transfer_umap_coords(x, training_set, test_set, umap1_var, umap2_var, k)
 }
 \arguments{
-\item{seurat_obj}{a Seurat object}
+\item{x}{a Seurat object}
 
 \item{training_set}{a matrix of cells x features. Usually corresponds to the
 "training_set" element in the list obtained with split_training_and_test_sets}

@@ -4,16 +4,10 @@
 \alias{integrate_assays_atac}
 \title{Integrate Single-Cell Chromatin Accessibility Profiles}
 \usage{
-integrate_assays_atac(
-  seurat_obj,
-  n_dim = 40,
-  assay_use,
-  group_by_vars,
-  reduction
-)
+integrate_assays_atac(x, n_dim = 40, assay_use, group_by_vars, reduction)
 }
 \arguments{
-\item{seurat_obj}{a Seurat object}
+\item{x}{a Seurat object TODO or a SingleCellExperiment object}
 
 \item{n_dim}{number of dimensions (principal components) to use as input to
 Harmony}

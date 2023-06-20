@@ -5,7 +5,7 @@
 \title{Find Optimal K}
 \usage{
 find_optimal_k(
-  seurat_obj,
+  x,
   training_set,
   response_var,
   ks = c(2, 4, 6, 8, 16, 32, 64, 128, 256),
@@ -14,7 +14,7 @@ find_optimal_k(
 )
 }
 \arguments{
-\item{seurat_obj}{a Seurat object}
+\item{x}{a Seurat object TODO or a SingleCellExperiment object}
 
 \item{training_set}{a matrix of cells x features. Usually corresponds to the
 "training_set" element in the list obtained with split_training_and_test_sets}

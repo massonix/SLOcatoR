@@ -4,10 +4,10 @@
 \alias{transfer_label}
 \title{Transfer label from training set to test set using a KNN classifier}
 \usage{
-transfer_label(seurat_obj, training_set, test_set, response_var, k)
+transfer_label(x, training_set, test_set, response_var, k)
 }
 \arguments{
-\item{seurat_obj}{a Seurat object}
+\item{x}{a Seurat object}
 
 \item{training_set}{a matrix of cells x features. Usually corresponds to the
 "training_set" element in the list obtained with split_training_and_test_sets}

@@ -4,14 +4,10 @@
 \alias{find_assay_specific_features}
 \title{Find Assay-specific Highly Variable Features}
 \usage{
-find_assay_specific_features(
-  seurat_obj,
-  assay_var = "assay",
-  n_features = 5000
-)
+find_assay_specific_features(x, assay_var = "assay", n_features = 5000)
 }
 \arguments{
-\item{seurat_obj}{a Seurat object}
+\item{x}{a Seurat object TODO or a SingleCellExperiment object}
 
 \item{assay_var}{a character string specifying which variable in
 seurat_obj@meta.data contains the assay for each cell}
@@ -32,6 +28,7 @@ intersection. In this setting, assay-dependent variable features are discarded,
 and batch effects are largely mitigated.
 }
 \examples{
+
 ## TODO TODO
 
 }

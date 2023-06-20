@@ -5,7 +5,7 @@
 \title{Split dataset into training and test sets}
 \usage{
 split_training_and_test_sets(
-  seurat_obj,
+  x,
   split_var,
   referece_label,
   query_label,
@@ -14,7 +14,7 @@ split_training_and_test_sets(
 )
 }
 \arguments{
-\item{seurat_obj}{a Seurat object}
+\item{x}{a Seurat object}
 
 \item{split_var}{a character string specifying which variable in
 seurat_obj@meta.data distinguishes between training and test cells}
