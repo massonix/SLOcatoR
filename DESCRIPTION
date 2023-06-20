@@ -8,7 +8,7 @@ Authors@R:
             family = "Massoni-Badosa", 
             email = "ramon.massoni@cnag.crg.eu", 
             role = c("aut", "cre"),
-            comment = c(ORCID = "0000-1111-TODO-0000")
+            comment = c(ORCID = "0000-0001-7115-8145")
         ),
         person(
             given = "Paula", 
