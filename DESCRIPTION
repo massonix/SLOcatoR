@@ -15,6 +15,7 @@ Authors@R:
             family = "Soler-Vila", 
             email = "PSOLER@clinic.cat", 
             role = "aut",
+            comment = c(ORCID = "0000-0003-1741-6670")
         ),
         person(
             given = "Federico", 
