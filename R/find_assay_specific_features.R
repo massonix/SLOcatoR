@@ -9,7 +9,7 @@
 #'and batch effects are largely mitigated.
 #'
 #'
-#' @param seurat_obj a Seurat object
+#' @param x a Seurat object TODO or a SingleCellExperiment object
 #' @param assay_var a character string specifying which variable in
 #'   seurat_obj@meta.data contains the assay for each cell
 #' @param n_features number of highly variable features to find per assay
@@ -22,18 +22,68 @@
 #' ## TODO TODO
 #'
 #' @importFrom Seurat SplitObject FindVariableFeatures VariableFeatures
+#' @importFrom SingleCellExperiment SingleCellExperiment colData rowData
 #' @importFrom purrr map
 #' @export
-find_assay_specific_features <- function(seurat_obj,
+find_assay_specific_features <- function(x,
                                          assay_var = "assay",
                                          n_features = 5000) {
-  seurat_list <- SplitObject(seurat_obj, split.by = assay_var)
-  seurat_list <- map(
-    seurat_list,
-    FindVariableFeatures,
-    nfeatures = n_features
+
+  .check_input(x)
+
+  # function specific checks - TODO
+  stopifnot(
+    # assay_var
+    is.character(assay_var),
+    length(assay_var) == 1,
+    # n_features
+    is.numeric(n_features),
+    n_features > 0
   )
-  hvg <- map(seurat_list, VariableFeatures)
-  shared_hvg <- Reduce(intersect, hvg)
-  shared_hvg
+
+  if (is(x, "Seurat")) {
+    seurat_list <- SplitObject(x, split.by = assay_var)
+    seurat_list <- map(
+      seurat_list,
+      FindVariableFeatures,
+      nfeatures = n_features
+    )
+    hvg <- map(seurat_list, VariableFeatures)
+    shared_hvg <- Reduce(intersect, hvg)
+    shared_hvg
+  } else if (is(x, "SingleCellExperiment")) {
+    ## TODO:
+    # writeup the correspondent code for an SCE object
+
+    # TODO: we need something (lapply?) on the different components
+
+    # TODO
+    # TODO
+    # TODO
+    # consider: we need to provide A LIST of SCE objects?
+
+  }
+
+  # TODO: think if there is some portion of code we can "have in common" to avoid
+  # excessive duplication
+  # e.g. could be also the simple merging of different elements from the hvg list
+  # the same is to apply/consider for the other functions
+
+  return(shared_hvg)
 }
+
+### ORIGINAL
+### find_assay_specific_features <- function(seurat_obj,
+###                                          assay_var = "assay",
+###                                          n_features = 5000) {
+###   seurat_list <- SplitObject(seurat_obj, split.by = assay_var)
+###   seurat_list <- map(
+###     seurat_list,
+###     FindVariableFeatures,
+###     nfeatures = n_features
+###   )
+###   hvg <- map(seurat_list, VariableFeatures)
+###   shared_hvg <- Reduce(intersect, hvg)
+###   shared_hvg
+### }
+
