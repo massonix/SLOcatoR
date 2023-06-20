@@ -6,7 +6,7 @@
 #' the classifier as a function of different choices of K to select the most
 #' optimal one.
 #'
-#' @param seurat_obj a Seurat object
+#' @param x a Seurat object TODO or a SingleCellExperiment object
 #' @param training_set a matrix of cells x features. Usually corresponds to the
 #'   "training_set" element in the list obtained with split_training_and_test_sets
 #' @param response_var character string specifying which variable in
@@ -28,38 +28,64 @@
 #' @importFrom rlang .data
 #' @importFrom ggplot2 ggplot aes geom_line geom_point theme_bw
 #' @export
-find_optimal_k <- function(seurat_obj,
+find_optimal_k <- function(x,
                            training_set,
                            response_var,
                            ks = c(2, 4, 6, 8, 16, 32, 64, 128, 256),
                            verbose = TRUE,
                            return_plot = TRUE) {
-  indices <- sample(
-    seq_len(nrow(training_set)),
-    size = nrow(training_set) * 0.7,
-    replace = FALSE
+
+
+  .check_input(x)
+
+  # function specific checks - TODO
+  stopifnot(
+    # training_set
+
+    # response_var
+    is.character(response_var),
+    length(response_var) == 1,
+    #ks
+    is.numeric(ks),
+    # verbose, return_plot
+    is.logical(verbose),
+    is.logical(return_plot)
   )
-  train_loan  <- training_set[indices, ] # 70% training data
-  test_loan <- training_set[-indices, ] # remaining 30% test data
-  train_labels <- seurat_obj@meta.data[rownames(train_loan), ][[response_var]]
-  test_labels <- seurat_obj@meta.data[rownames(test_loan), ][[response_var]]
 
-  k_optm <- c()
-  k_values <- c()
-
-  for (i in ks) {
-    if (verbose) message(i)
-    knn_mod <- knn(
-      train = train_loan,
-      test = test_loan,
-      cl = train_labels,
-      k = i
+  if (is(x, "Seurat")) {
+    indices <- sample(
+      seq_len(nrow(training_set)),
+      size = nrow(training_set) * 0.7,
+      replace = FALSE
     )
-    k_optm <- c(k_optm, mean(test_labels == knn_mod) * 100)
-    k_values <- c(k_values, i)
+
+    train_loan  <- training_set[indices, ] # 70% training data
+    test_loan <- training_set[-indices, ] # remaining 30% test data
+    train_labels <- x@meta.data[rownames(train_loan), ][[response_var]]
+    test_labels <- x@meta.data[rownames(test_loan), ][[response_var]]
+
+    k_optm <- c()
+    k_values <- c()
+
+    for (i in ks) {
+      if (verbose) message(i)
+      knn_mod <- knn(
+        train = train_loan,
+        test = test_loan,
+        cl = train_labels,
+        k = i
+      )
+      k_optm <- c(k_optm, mean(test_labels == knn_mod) * 100)
+      k_values <- c(k_values, i)
+    }
+
+    k_df <- data.frame(k = k_values, accuracy = k_optm)
+
+  } else if (is(x, "SingleCellExperiment")) {
+    ## TODO ## TODO ## TODO
   }
 
-  k_df <- data.frame(k = k_values, accuracy = k_optm)
+  ## TODO: put common chunks here
 
   if (return_plot) {
     p <- ggplot(k_df, aes(.data$k, .data$accuracy)) +
@@ -72,3 +98,50 @@ find_optimal_k <- function(seurat_obj,
     return(k_df)
   }
 }
+
+
+### ORIGINAL
+### find_optimal_k <- function(seurat_obj,
+###                            training_set,
+###                            response_var,
+###                            ks = c(2, 4, 6, 8, 16, 32, 64, 128, 256),
+###                            verbose = TRUE,
+###                            return_plot = TRUE) {
+###   indices <- sample(
+###     seq_len(nrow(training_set)),
+###     size = nrow(training_set) * 0.7,
+###     replace = FALSE
+###   )
+###   train_loan  <- training_set[indices, ] # 70% training data
+###   test_loan <- training_set[-indices, ] # remaining 30% test data
+###   train_labels <- seurat_obj@meta.data[rownames(train_loan), ][[response_var]]
+###   test_labels <- seurat_obj@meta.data[rownames(test_loan), ][[response_var]]
+###
+###   k_optm <- c()
+###   k_values <- c()
+###
+###   for (i in ks) {
+###     if (verbose) message(i)
+###     knn_mod <- knn(
+###       train = train_loan,
+###       test = test_loan,
+###       cl = train_labels,
+###       k = i
+###     )
+###     k_optm <- c(k_optm, mean(test_labels == knn_mod) * 100)
+###     k_values <- c(k_values, i)
+###   }
+###
+###   k_df <- data.frame(k = k_values, accuracy = k_optm)
+###
+###   if (return_plot) {
+###     p <- ggplot(k_df, aes(.data$k, .data$accuracy)) +
+###       geom_line() +
+###       geom_point() +
+###       theme_bw()
+###     return(list(df = k_df, plot = p))
+###
+###   } else {
+###     return(k_df)
+###   }
+### }
