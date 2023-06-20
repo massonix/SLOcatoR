@@ -2,7 +2,7 @@
 #'
 #'
 #'
-#' @param seurat_obj a Seurat object
+#' @param x a Seurat object
 #' @param training_set a matrix of cells x features. Usually corresponds to the
 #'   "training_set" element in the list obtained with split_training_and_test_sets
 #' @param test_set a matrix of cells x features. Usually corresponds to the
@@ -20,23 +20,56 @@
 #'
 #' @importFrom class knn
 #' @export
-transfer_label <- function(seurat_obj,
+transfer_label <- function(x,
                            training_set,
                            test_set,
                            response_var,
                            k) {
-  training_labels <- seurat_obj@meta.data[rownames(training_set), response_var]
-  knn_mod <- knn(
-    train = training_set,
-    test = test_set,
-    cl = training_labels,
-    k = k,
-    prob = TRUE
-  )
+
+  if (is(x, "Seurat")) {
+    training_labels <- x@meta.data[rownames(training_set), response_var]
+    knn_mod <- knn(
+      train = training_set,
+      test = test_set,
+      cl = training_labels,
+      k = k,
+      prob = TRUE
+    )
+
+  } else if (is(x, "SingleCellExperiment")) {
+    ## TODO ## TODO ## TODO
+  }
+
+
   test_labels_df <- data.frame(
     query_cells = rownames(test_set),
     annotation = as.character(knn_mod),
     annotation_prob = attr(knn_mod, "prob")
   )
-  test_labels_df
+
+  return(test_labels_df)
 }
+
+
+### ORIGINAL
+### transfer_label <- function(seurat_obj,
+###                            training_set,
+###                            test_set,
+###                            response_var,
+###                            k) {
+###   training_labels <- seurat_obj@meta.data[rownames(training_set), response_var]
+###   knn_mod <- knn(
+###     train = training_set,
+###     test = test_set,
+###     cl = training_labels,
+###     k = k,
+###     prob = TRUE
+###   )
+###   test_labels_df <- data.frame(
+###     query_cells = rownames(test_set),
+###     annotation = as.character(knn_mod),
+###     annotation_prob = attr(knn_mod, "prob")
+###   )
+###   test_labels_df
+### }
+

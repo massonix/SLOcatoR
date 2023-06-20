@@ -6,7 +6,7 @@
 #' fastest batch effect correction tools (10.1186/s13059-019-1850-9).
 #'
 #'
-#' @param seurat_obj a Seurat object
+#' @param x a Seurat object TODO or a SingleCellExperiment object
 #' @param assay_specific logical indicating whether to perform the integration
 #'   in an assay-specific fashion or not.
 #' @param assay_var a character string specifying which variable in
@@ -26,22 +26,54 @@
 #' @importFrom Seurat ScaleData RunPCA
 #' @importFrom harmony RunHarmony
 #' @export
-integrate_assays <- function(seurat_obj,
+integrate_assays <- function(x,
                              assay_specific = TRUE,
                              assay_var = "assay",
                              shared_hvg,
                              n_dim = 30
 ) {
-  if (assay_specific) {
-    seurat_obj <- seurat_obj %>%
-      ScaleData(features = shared_hvg) %>%
-      RunPCA(features = shared_hvg) %>%
-      RunHarmony(group.by.vars = assay_var, reduction = "pca", dims = seq_len(n_dim))
-  } else {
-    seurat_obj <- seurat_obj %>%
-      ScaleData() %>%
-      RunPCA()
+  if (is(x, "Seurat")) {
+    if (assay_specific) {
+      x <- x %>%
+        ScaleData(features = shared_hvg) %>%
+        RunPCA(features = shared_hvg) %>%
+        RunHarmony(group.by.vars = assay_var, reduction = "pca", dims = seq_len(n_dim))
+    } else {
+      x <- x %>%
+        ScaleData() %>%
+        RunPCA()
+    }
+
+    x
+  } else if (is(x, "SingleCellExperiment")) {
+    ## TODO ## TODO ## TODO
   }
 
-  seurat_obj
+
+
+
 }
+
+
+
+### ORIGINAL
+### integrate_assays <- function(seurat_obj,
+###                              assay_specific = TRUE,
+###                              assay_var = "assay",
+###                              shared_hvg,
+###                              n_dim = 30
+### ) {
+###   if (assay_specific) {
+###     seurat_obj <- seurat_obj %>%
+###       ScaleData(features = shared_hvg) %>%
+###       RunPCA(features = shared_hvg) %>%
+###       RunHarmony(group.by.vars = assay_var, reduction = "pca", dims = seq_len(n_dim))
+###   } else {
+###     seurat_obj <- seurat_obj %>%
+###       ScaleData() %>%
+###       RunPCA()
+###   }
+###
+###   seurat_obj
+### }
+
